@@ -1,4 +1,4 @@
-var countdown = document.querySelector(".timer");
+var countdown = document.querySelector("#countdown-number");
 var scores = document.querySelector(".highScores");
 var start = document.querySelector("#button");
 var questions = document.querySelector(".questions-container");
@@ -9,6 +9,7 @@ var choiceThree = document.getElementById("choice3");
 var choiceFour = document.getElementById("choice4");
 var choices = document.getElementById("choices");
 var msg = document.getElementById("msg");
+var finale = document.getElementById("final-score");
 
 var secondsLeft = 30;
 var questionIndex = 0
@@ -31,22 +32,22 @@ var questions = [
     },
     {
         question: "Where did street wear originate?",
-        choices: ["Los Angeles", "New York", "Japan", "All of the above"]
+        choices: ["Los Angeles", "New York", "Japan", "All of the above"],
+        correct: "All of the above"
     },
   ];
-
+  finale.style.visibility = "hidden";
 function startTimer(){
+    
     seconds = setInterval(function () {
         secondsLeft--;
         if (secondsLeft >= 0) {
-          countdown.textContent = "Timer: " + secondsLeft;
+          countdown.textContent = secondsLeft;
         }
         if (secondsLeft === 0) {
           clearInterval(secondsLeft);
-          gameMessage();
         }
       }, 500);
-
 }
 
 
@@ -61,20 +62,30 @@ if(event.target.matches('li')){
     //TODO
     if(correctAnswer === usersChoice){
         msg.textContent = "Correct!";
-        msg.hidden;
+        // msg.style.visbility = "hidden";
         console.log("Correct!")
     }else{
         msg.textContent = "Wrong!"
+        // msg.style.visibility = "hidden";
         console.log("WRONG")
-    
     }
+    
     questionIndex++
     //IF STATEMENT END OF GAME
     if (questionIndex === 4) {
         return;
     }
     renderQuestions();
+//TODO
+    if ( usersChoice != correctAnswer) {
+        var deduction = (secondsLeft - 2);
+        deduction--;
+       countdown.textContent = deduction;
+       console.log(deduction);
+    }
 }
+
+
 }
 
 function renderQuestions() {
@@ -90,6 +101,22 @@ function renderQuestions() {
 function startQuiz() {
    startTimer()
    renderQuestions()
+   stopQuiz()
+}
+//if last question ends or the timer reaches 0, whichever first, unhide the highscores input and hide the questions
+function stopQuiz() {
+    // if (event.target.match("section")) {
+        // finale.style.visibility = "hidden";
+        // console.log(finale);
+    // }
+    if (secondsLeft === 0 || questionIndex > questionIndex.length ) {
+        questionEl.style.visibility = "hidden";
+        finale.style.visibility = "visible";
+        console.log(questionEl);
+       return;
+       
+    }
+    
 }
 
     
