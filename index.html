@@ -19,9 +19,9 @@
     </header>
     <main class="instructions">
             <h1>Fashion Quiz Challenge!</h1>
-            <p>Try to answer the questions within the allotted time. If you aren't able to finish before the game is over you lose. Press start to begin.</p>
+            <p id="game-instructions">Try to answer the questions within the allotted time. If you aren't able to finish before the game is over you lose. Press start to begin.</p>
             <button id="button">Start</button>
-        <div class= questions-container> 
+        <div class= questions-container id="questions-container"> 
         <div class="question-one">
             <h2 id="question"></h2>
             <ol id="choices">
@@ -30,7 +30,9 @@
                 <li id="choice3" role="button" data-answer="false"></li>
                 <li id="choice4" role="button" data-answer="false"></li>
             </ol>
+            <hr>
             <p id=msg></p>
+            <button id="end-of-game">Finish</button>
         </div>
      </div>
     </main>
@@ -38,7 +40,7 @@
         <h2>All done!</h2>
         <p>Your final score is</p>
         <label for="initials"> Enter Initials:</label>
-        <input type="text" class="finished" name="records">
+        <input type="text" class="finished" id="finished" name="records">
         <button class="submit-button">Submit</button>
     </section>
 

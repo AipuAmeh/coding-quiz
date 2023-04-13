@@ -10,7 +10,7 @@ var choiceFour = document.getElementById("choice4");
 var choices = document.getElementById("choices");
 var msg = document.getElementById("msg");
 var finale = document.getElementById("final-score");
-
+var finish = document.getElementById("end-of-game");
 var secondsLeft = 30;
 var questionIndex = 0
 
@@ -37,6 +37,7 @@ var questions = [
     },
   ];
   finale.style.visibility = "hidden";
+  finish.style.visibility = "hidden";
 function startTimer(){
     
     seconds = setInterval(function () {
@@ -48,6 +49,9 @@ function startTimer(){
           clearInterval(secondsLeft);
         }
       }, 500);
+
+document.getElementById("game-instructions").style.visibility= "hidden";
+start.style.visibility = "hidden";
 }
 
 
@@ -68,21 +72,20 @@ if(event.target.matches('li')){
         msg.textContent = "Wrong!"
         // msg.style.visibility = "hidden";
         console.log("WRONG")
+        secondsLeft = secondsLeft - 5;
+      
     }
     
     questionIndex++
-    //IF STATEMENT END OF GAME
-    if (questionIndex === 4) {
-        return;
+    
+    if ( secondsLeft === 0 || questionIndex===4) {
+        document.getElementById("questions-container").style.visibility = "hidden";
+        finale.style.visibility = "visible";
+        console.log(questionEl);
+        // return;
     }
     renderQuestions();
-//TODO
-    if ( usersChoice != correctAnswer) {
-        var deduction = (secondsLeft - 2);
-        deduction--;
-       countdown.textContent = deduction;
-       console.log(deduction);
-    }
+
 }
 
 
@@ -101,23 +104,26 @@ function renderQuestions() {
 function startQuiz() {
    startTimer()
    renderQuestions()
-   stopQuiz()
+//    stopQuiz()
 }
-//if last question ends or the timer reaches 0, whichever first, unhide the highscores input and hide the questions
-function stopQuiz() {
-    // if (event.target.match("section")) {
-        // finale.style.visibility = "hidden";
-        // console.log(finale);
-    // }
-    if (secondsLeft === 0 || questionIndex > questionIndex.length ) {
-        questionEl.style.visibility = "hidden";
-        finale.style.visibility = "visible";
-        console.log(questionEl);
-       return;
-       
+//
+// var initials = localStorage.getItem("finished");
+var submit = document.querySelector(".submit-button");
+
+submit.addEventListener("click", function(event){
+    event.preventDefault();
+var initialInput = document.querySelector("#finished").value;
+   
+    if (initialInput === "") {
+        initialInput.textContent = "Input field cannot be blank";
+        // displayMessage("Input field cannot be blank");
+    } else {
+        console.log("success");
     }
+    localStorage.setItem("finished", initialInput);
+    console.log(initialInput);
+})
     
-}
 
     
     choices.addEventListener("click", checkAnswer);
