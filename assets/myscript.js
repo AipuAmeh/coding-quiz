@@ -36,8 +36,11 @@ var questions = [
         correct: "All of the above"
     },
   ];
+
   finale.style.visibility = "hidden";
   finish.style.visibility = "hidden";
+choices.style.visibility = "hidden";
+
 function startTimer(){
     
     seconds = setInterval(function () {
@@ -49,11 +52,14 @@ function startTimer(){
           clearInterval(secondsLeft);
         }
       }, 500);
-
+// choices.style.visibility = "visible";
+document.getElementById("questions-container").style.visibility = "visible";
+choices.style.visibility="visible";
 document.getElementById("game-instructions").style.visibility= "hidden";
 start.style.visibility = "hidden";
 }
 
+var points = localStorage.getItem("#points");
 
 function checkAnswer(event){
 if(event.target.matches('li')){
@@ -66,6 +72,7 @@ if(event.target.matches('li')){
     //TODO
     if(correctAnswer === usersChoice){
         msg.textContent = "Correct!";
+        points += 3
         // msg.style.visbility = "hidden";
         console.log("Correct!")
     }else{
@@ -79,6 +86,7 @@ if(event.target.matches('li')){
     questionIndex++
     
     if ( secondsLeft === 0 || questionIndex===4) {
+        choices.style.visibility="hidden";
         document.getElementById("questions-container").style.visibility = "hidden";
         finale.style.visibility = "visible";
         console.log(questionEl);
@@ -104,10 +112,10 @@ function renderQuestions() {
 function startQuiz() {
    startTimer()
    renderQuestions()
-//    stopQuiz()
+
 }
-//
-// var initials = localStorage.getItem("finished");
+
+
 var submit = document.querySelector(".submit-button");
 
 submit.addEventListener("click", function(event){
@@ -116,12 +124,16 @@ var initialInput = document.querySelector("#finished").value;
    
     if (initialInput === "") {
         initialInput.textContent = "Input field cannot be blank";
-        // displayMessage("Input field cannot be blank");
+       
     } else {
         console.log("success");
     }
     localStorage.setItem("finished", initialInput);
+    localStorage.setItem("points", points);
+    console.log(points);
     console.log(initialInput);
+    
+    window.location.href = "file:///Users/aipuameh/bootcamp/homework/week-four/myindex.html";
 })
     
 
