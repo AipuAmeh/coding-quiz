@@ -6,7 +6,9 @@ This quiz consists of 4 fashion trivia questions. In this challenge we practiced
 
 ## Installation
 
-Link: 
+Link: file:///Users/aipuameh/bootcamp/homework/week-four/index.html
+<img width="1438" alt="Screenshot 2023-04-13 at 11 49 42 PM" src="https://user-images.githubusercontent.com/110988589/231937017-d6da07d4-14fd-4545-b1f2-3711cc4de524.png">
+
 
 ## Usage
 
