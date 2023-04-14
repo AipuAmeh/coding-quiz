@@ -31,6 +31,11 @@ ol{
     border: 5px;
     border-color: black;
     padding: 5px;
+    font-size: 20px;
+}
+
+ol li{
+    font-size: 18px;
 }
 
 .highscores{
@@ -39,7 +44,15 @@ ol{
     padding-top: 100px;
 }
 
+.scores-list li {
+    list-style-type: none;
+}
+
 #countdown-number{
+    font-size: 20px;
+}
+
+#game-instructions {
     font-size: 20px;
 }
 #final-score {
@@ -49,5 +62,12 @@ ol{
     left: 34rem;
     top: 10rem;
 }
+
+
+#button{
+    font-size: 20px;
+}
+
+
 
 

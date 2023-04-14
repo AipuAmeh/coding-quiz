@@ -49,10 +49,10 @@ function startTimer(){
           countdown.textContent = secondsLeft;
         }
         if (secondsLeft === 0) {
-          clearInterval(secondsLeft);
+          clearInterval(seconds);
         }
-      }, 500);
-// choices.style.visibility = "visible";
+      }, 1000);
+
 document.getElementById("questions-container").style.visibility = "visible";
 choices.style.visibility="visible";
 document.getElementById("game-instructions").style.visibility= "hidden";
@@ -69,15 +69,12 @@ if(event.target.matches('li')){
     console.log(questionIndex)
     console.log(questions[questionIndex].correct)
 
-    //TODO
     if(correctAnswer === usersChoice){
         msg.textContent = "Correct!";
         points += 3
-        // msg.style.visbility = "hidden";
         console.log("Correct!")
     }else{
         msg.textContent = "Wrong!"
-        // msg.style.visibility = "hidden";
         console.log("WRONG")
         secondsLeft = secondsLeft - 5;
       
@@ -90,7 +87,6 @@ if(event.target.matches('li')){
         document.getElementById("questions-container").style.visibility = "hidden";
         finale.style.visibility = "visible";
         console.log(questionEl);
-        // return;
     }
     renderQuestions();
 
@@ -100,6 +96,10 @@ if(event.target.matches('li')){
 }
 
 function renderQuestions() {
+    if(questionIndex >= questions.length){
+         clearInterval(seconds);
+        return
+    }
     questionEl.textContent = questions[questionIndex].question
     choiceOne.textContent = questions[questionIndex].choices[0]
     choiceTwo.textContent = questions[questionIndex].choices[1];
