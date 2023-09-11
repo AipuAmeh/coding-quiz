@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="./assets/css/script.css"/>
+    <title>Fashion Trivia</title>
+</head>
+<body>
+    <header>
+        <div class="timer">
+            <h4 id="start-time">Timer: </h4>
+            <span id="countdown-number"></span>
+        </div>
+        <div class="highScores">
+            <h4>View Highscores</h4>
+        </div>
+    </header>
+    <main class="instructions">
+            <h1>Fashion Quiz Challenge!</h1>
+            <p id="game-instructions">Try to answer the questions within the allotted time. 5 seconds are deducted for every question answered incorrectly. Press start to begin.</p>
+            <button id="button">Start</button>
+        <div class= questions-container id="questions-container"> 
+        <div class="question-one">
+            <h2 id="question"></h2>
+            <ol id="choices">
+                <li id="choice1" role="button"></li>
+                <li id="choice2"  role="button"></li>
+                <li id="choice3" role="button"></li>
+                <li id="choice4" role="button"></li>
+            </ol>
+            <hr>
+            <p id=msg></p>
+            <button id="end-of-game">Finish</button>
+        </div>
+     </div>
+    </main>
+    <section id="final-score">
+        <h2>All done!</h2>
+        <p id="points">Your final score is</p>
+        <label for="initials"> Enter Initials:</label>
+        <input type="text" class="finished" id="finished" name="records">
+        <button class="submit-button" >Submit</button>
+    </section>
+
+  <script src="./assets/myscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+*{
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: lavender;
+}
+h1,
+h2,
+h4 {
+ color: darkorchid;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 32px;
+}
+h2 {
+    font-size: 24px;
+}
+
+main {
+    margin: auto;
+    text-align: center;
+}
+ol{
+    list-style-position: inside;
+    border: 5px;
+    border-color: black;
+    padding: 5px;
+    font-size: 20px;
+}
+
+ol li{
+    font-size: 18px;
+}
+
+.highscores{
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.scores-list li {
+    list-style-type: none;
+}
+
+#countdown-number{
+    font-size: 20px;
+}
+
+#game-instructions {
+    font-size: 20px;
+}
+#final-score {
+    position: absolute;
+    margin-top: 5rem;
+    text-align: center;
+    left: 34rem;
+    top: 10rem;
+}
+
+
+#button{
+    font-size: 20px;
+}
+
+
+
+
