@@ -14,6 +14,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    margin: 10px;
 }
 
 h1 {
@@ -42,7 +43,18 @@ ol li{
     font-size: 18px;
 }
 
-.highscores{
+.highScores {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin-right: 5px;
+}
+
+.highScores li {
+   text-align: center;
+}
+
+.highscoresHtml{
     margin: auto;
     text-align: center;
     padding-top: 100px;
@@ -50,14 +62,36 @@ ol li{
 
 .scores-list li {
     list-style-type: none;
+    font-size: 25px;
+}
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
 }
 
 .finished {
     margin-bottom: 10px;
 }
-
+.go-back {
+    font-size: 24px;
+    padding: 10px;
+    width: 20%;
+    background-color:darkorchid;
+    color: white; 
+}
+.clear-scores {
+    font-size: 24px;
+    padding: 10px;
+    width: 20%;
+    background-color:darkorchid;
+    color: white; 
+}
 #countdown-number{
     font-size: 20px;
+    /* display: inline-block; */
 }
 
 #game-instructions {
@@ -100,4 +134,12 @@ ol li{
     color: white;
 }
 
+@media screen and (max-width:578px){
+  header,
+  main,
+  section,
+  body{
+    width: 100%;
+  }
 
+}

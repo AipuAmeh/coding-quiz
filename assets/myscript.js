@@ -105,6 +105,7 @@ function renderQuestions() {
 function startQuiz() {
   startTimer();
   renderQuestions();
+  renderHighscores();
 }
 
 var submit = document.querySelector("#submit-button");
@@ -124,16 +125,16 @@ submit.addEventListener("click", function (event) {
   window.location.href = "./myindex.html";
 });
 
-// get high scores from storage to post under view high scores
-
 function renderHighscores() {
   var points = localStorage.getItem("points");
-  var finished = localStorage.get("finished");
+  var finished = localStorage.getItem("finished");
   var highScores = document.querySelector('.highScores');
 
   if (points || finished !== null ) {
   var stats =  document.createElement("li");
-  stats.textContent = points + finished;
+ 
+  stats.textContent = points + " " + finished;
+  console.log(stats);
   highScores.append(stats);
   } 
 }
