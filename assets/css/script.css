@@ -1,5 +1,5 @@
 *{
-    font-size: 16px;
+    font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     background-color: lavender;
 }
@@ -12,7 +12,9 @@ h4 {
 header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px;
+    margin: 10px;
 }
 
 h1 {
@@ -23,8 +25,11 @@ h2 {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
     margin: auto;
     text-align: center;
+    align-items: center;
 }
 ol{
     list-style-position: inside;
@@ -38,7 +43,18 @@ ol li{
     font-size: 18px;
 }
 
-.highscores{
+.highScores {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin-right: 5px;
+}
+
+.highScores li {
+   text-align: center;
+}
+
+.highscoresHtml{
     margin: auto;
     text-align: center;
     padding-top: 100px;
@@ -46,28 +62,84 @@ ol li{
 
 .scores-list li {
     list-style-type: none;
+    font-size: 25px;
 }
 
+.timer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+
+.finished {
+    margin-bottom: 10px;
+}
+.go-back {
+    font-size: 24px;
+    padding: 10px;
+    width: 20%;
+    background-color:darkorchid;
+    color: white; 
+}
+.clear-scores {
+    font-size: 24px;
+    padding: 10px;
+    width: 20%;
+    background-color:darkorchid;
+    color: white; 
+}
 #countdown-number{
     font-size: 20px;
+    /* display: inline-block; */
 }
 
 #game-instructions {
     font-size: 20px;
 }
 #final-score {
-    position: absolute;
-    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    left: 34rem;
-    top: 10rem;
+    font-size: 30px;
 }
 
+#initials {
+    margin: 10px;
 
-#button{
-    font-size: 20px;
 }
 
+#start-button{
+    font-size: 24px;
+    padding: 10px;
+    width: 20%;
+    background-color:darkorchid;
+    color: white;
+}
 
+#end-of-game {
+    font-size: 24px;
+    padding: 10px;
+    width: 20%;
+    background-color:darkorchid;
+    color: white;
+}
 
+#submit-button {
+    font-size: 24px;
+    padding: 10px;
+    width: 20%;
+    background-color:darkorchid;
+    color: white;
+}
 
+@media screen and (max-width:578px){
+  header,
+  main,
+  section,
+  body{
+    width: 100%;
+  }
+
+}
