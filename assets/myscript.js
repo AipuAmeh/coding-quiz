@@ -37,8 +37,9 @@ var questions = [
     correct: "All of the above",
   },
 ];
-// fix visibility of finale
-// get high scores from storage to post under view high scores
+
+
+
 finale.style.visibility = "hidden";
 finish.style.visibility = "hidden";
 choices.style.visibility = "hidden";
@@ -78,10 +79,12 @@ function checkAnswer(event) {
     questionIndex++;
 
     if (secondsLeft === 0 || questionIndex === 4) {
-      choices.style.visibility = "hidden";
-      document.getElementById("questions-container").style.visibility =
-        "hidden";
-      finale.style.visibility = "visible";
+      var instructions = document.querySelector(".instructions");
+      var final = document.querySelector("#final-score");
+      
+      instructions.replaceWith(final);
+
+      final.style.visibility = "visible";
     }
     renderQuestions();
   }
@@ -104,7 +107,7 @@ function startQuiz() {
   renderQuestions();
 }
 
-var submit = document.querySelector(".submit-button");
+var submit = document.querySelector("#submit-button");
 
 submit.addEventListener("click", function (event) {
   event.preventDefault();
@@ -120,6 +123,20 @@ submit.addEventListener("click", function (event) {
 
   window.location.href = "./myindex.html";
 });
+
+// get high scores from storage to post under view high scores
+
+function renderHighscores() {
+  var points = localStorage.getItem("points");
+  var finished = localStorage.get("finished");
+  var highScores = document.querySelector('.highScores');
+
+  if (points || finished !== null ) {
+  var stats =  document.createElement("li");
+  stats.textContent = points + finished;
+  highScores.append(stats);
+  } 
+}
 
 choices.addEventListener("click", checkAnswer);
 start.addEventListener("click", startQuiz);
